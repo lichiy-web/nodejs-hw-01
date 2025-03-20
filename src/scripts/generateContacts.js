@@ -9,5 +9,6 @@ export const generateContacts = async (number = 1) => {
     writeContacts([...contactList, ...newContacts]);
 };
 
-const number = +argv.filter(param => param.includes('num'))?.[0]?.split("=")?.[1];
+const CliNumParam = argv.find(param => param.includes('num='));
+const number = CliNumParam && CliNumParam.replace(/num=(\d*)/, '$1');
 if(number) generateContacts(number);
