@@ -10,5 +10,5 @@ export const generateContacts = async (number = 1) => {
 };
 
 const CliNumParam = argv.find(param => param.includes('num='));
-const number = CliNumParam && CliNumParam.replace(/num=(\d*)/, '$1');
+const number = CliNumParam && +CliNumParam.replace(/num=(\d*)/, '$1');
 if(number) generateContacts(number);
